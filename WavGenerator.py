@@ -5,7 +5,7 @@ from speechkit import model_repository, configure_credentials, creds
 
 configure_credentials(
    yandex_credentials=creds.YandexCredentials(
-      api_key='AQVNxN12ePItc1qImVREfzqeW_tn-SlA6jgyFzkR'
+      api_key=''
    )
 )
 
