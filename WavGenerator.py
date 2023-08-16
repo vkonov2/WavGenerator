@@ -67,14 +67,14 @@ def synthesize(text, output_filename, **kwargs):
 def main():
 
    parser = argparse.ArgumentParser(description='Speech generation script based on Yandex SpeechKit')
-   parser.add_argument('-input', type=str, default='text.txt', metavar='text', help='input text file')
-   parser.add_argument('-output_dir', type=str, default='wavs', metavar='wav', help='output wav file')
-   parser.add_argument('-warnings', type=bool, default=False, metavar='warnings', help='show all warnings')
-   parser.add_argument('-voice', type=str, default='None', metavar='voice', help=models_info)
-   parser.add_argument('-role', type=str, default='None', metavar='role', help=models_info)
-   parser.add_argument('-speed', type=float, default=1.0, metavar='speed', help='change speed of speech')
-   parser.add_argument('-volume', type=int, default=-19, metavar='volume', help='regulate normalization level. Volume changes in a range [-145;0), default value is -19.')
-   parser.add_argument('-pitch', type=float, default=0., metavar='pitch_shift', help='increase (or decrease) speakers pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.')
+   parser.add_argument('-input', type=str, default='text.txt', metavar='text.txt', help='input text file')
+   parser.add_argument('-dir', type=str, default='wavs', metavar='wav', help='output wav file')
+   parser.add_argument('-warnings', type=bool, default=False, metavar='False', help='show all warnings')
+   parser.add_argument('-voice', type=str, default='None', metavar='alena', help='see list of available models in README')
+   parser.add_argument('-role', type=str, default='None', metavar='good', help='see list of available roles in README')
+   parser.add_argument('-speed', type=float, default=1.0, metavar='1.0', help='change speed of speech')
+   parser.add_argument('-volume', type=int, default=-19, metavar='-19', help='regulate normalization level. Volume changes in a range [-145;0), default value is -19.')
+   parser.add_argument('-pitch', type=float, default=0., metavar='0.0', help='increase (or decrease) speakers pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.')
    args = parser.parse_args()
 
    os.makedirs(args.output_dir, exist_ok=True)
@@ -82,7 +82,7 @@ def main():
       lines = f.readlines()
       
    for index in tqdm(range(len(lines))): 
-      wav_filename = os.path.join(args.output_dir, str(index+1)+'.wav')
+      wav_filename = os.path.join(args.dir, str(index+1)+'.wav')
       synthesize(lines[index], wav_filename, show=args.warnings, speed=args.speed, voice=args.voice, role=args.role, volume=args.volume, pitch=args.pitch)
 
    return 0
