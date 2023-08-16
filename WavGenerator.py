@@ -77,7 +77,7 @@ def main():
    parser.add_argument('-pitch', type=float, default=0., metavar='0.0', help='increase (or decrease) speakers pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.')
    args = parser.parse_args()
 
-   os.makedirs(args.output_dir, exist_ok=True)
+   os.makedirs(args.dir, exist_ok=True)
    with open(args.input, 'r') as f:
       lines = f.readlines()
       
