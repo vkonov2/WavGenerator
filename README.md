@@ -21,7 +21,7 @@ Speech generation from text based on Yandex SpeechKit.
 
 - WavGenerator.py uses argparse. For information about CL args use -h.
 - Text for speech generation should be written in one file (default: text.txt) and used as -input flag from CL.
-- Wav files would be generated in output_dir (default: wav/) that is set by -output_dir flag from CL.
+- Wav files would be generated in -dir (default: wav) that is set by -dir flag from CL.
 - Every string in -input would be generated as separate files. Names of these files are set as the number of string in the -input file.
 
 Running the script:
