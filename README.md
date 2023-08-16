@@ -24,6 +24,9 @@ Speech generation from text based on Yandex SpeechKit.
 - Wav files would be generated in output_dir (default: wav/) that is set by -output_dir flag from CL.
 - Every string in -input would be generated as separate files. Names of these files are set as the number of string in the -input file.
 
+Running the script:
+`pipenv run python WavGenerator.py`
+
 ## NOTE: 
 It is needed a Yandex Cloud API-key for the script running.
 Use your own one or connect with script provider for the key obtaining.
