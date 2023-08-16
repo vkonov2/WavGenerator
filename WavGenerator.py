@@ -5,7 +5,7 @@ from speechkit import model_repository, configure_credentials, creds
 
 configure_credentials(
    yandex_credentials=creds.YandexCredentials(
-      api_key=''
+      api_key='AQVNxN12ePItc1qImVREfzqeW_tn-SlA6jgyFzkR'
    )
 )
 
@@ -51,6 +51,9 @@ def synthesize(text, output_filename, **kwargs):
          model.role = 'neutral' if model.voice != 'naomi' else 'modern'
       else:
          model.role = kwargs['role']
+   model.speed = kwargs['speed']
+   model.volume = kwargs['volume']
+   model.pitch_shift = kwargs['pitch']
 
    result = model.synthesize(text, raw_format=False)
    result.export(output_filename, 'wav')
@@ -58,7 +61,8 @@ def synthesize(text, output_filename, **kwargs):
 
 def main():
 
-   models_info = 'Model of voices and roles:\n'
+   models_info = 'Model of voices and roles:\n\n'
+   models_info += '\t  lang      name        gender   role'
    models_info += '\t- german  - lea       - female\n'
    models_info += '\t- english - john      - male\n'
    models_info += '\t- hebrew  - naomi     - female - modern\n'
@@ -92,6 +96,9 @@ def main():
    parser.add_argument('-output_dir', type=str, default='wavs', metavar='wav', help='output wav file')
    parser.add_argument('-voice', type=str, default='None', metavar='voice', help=models_info)
    parser.add_argument('-role', type=str, default='None', metavar='role', help=models_info)
+   parser.add_argument('-speed', type=float, default=1.0, metavar='speed', help='change speed of speech')
+   parser.add_argument('-volume', type=int, default=-19, metavar='volume', help='regulate normalization level. Volume changes in a range [-145;0), default value is -19.')
+   parser.add_argument('-pitch', type=float, default=0., metavar='pitch_shift', help='increase (or decrease) speakers pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.')
    args = parser.parse_args()
 
    os.makedirs(args.output_dir, exist_ok=True)
@@ -99,7 +106,7 @@ def main():
    with open(args.input, 'r') as f:
       line = f.readline()
       wav_filename = os.path.join(args.output_dir, str(index)+'.wav')
-      synthesize(line, wav_filename, voice=args.voice, role=args.role)
+      synthesize(line, wav_filename, speed=args.speed, voice=args.voice, role=args.role, volume=args.volume, pitch=args.pitch)
       index += 1
 
    return 0
