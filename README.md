@@ -4,18 +4,29 @@ Text-to-speech convertion based on Yandex SpeechKit.
 
 ## Installation guide (using pipenv):
 
-- install 'pipenv'
+- install pipenv
 
-`pip install pipenv`
+```text
+pip install pipenv
+```
+
 - open the project directory:
 
-`cd WavGenerator`
+```text
+cd WavGenerator
+```
+
 - create lock file:
 
-`pipenv lock`
+```text
+pipenv lock
+```
+
 - install dependencies:
 
-`pipenv install`
+```text
+pipenv install
+```
 
 ## User guide:
 
@@ -25,7 +36,10 @@ Text-to-speech convertion based on Yandex SpeechKit.
 - Every string in -input would be generated as separate files. Names of these files are set as the number of string in the -input file.
 
 Running the script:
-`pipenv run python WavGenerator.py`
+
+```text
+pipenv run python WavGenerator.py
+```
 
 ## NOTE: 
 It is needed a Yandex Cloud API-key saved in an environment for the script running.
