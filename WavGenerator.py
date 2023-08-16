@@ -66,36 +66,6 @@ def synthesize(text, output_filename, **kwargs):
 
 def main():
 
-   models_info = 'Model of voices and roles:\n\n'
-   models_info += '\t  lang      name        gender   role'
-   models_info += '\t- german  - lea       - female\n'
-   models_info += '\t- english - john      - male\n'
-   models_info += '\t- hebrew  - naomi     - female - modern\n'
-   models_info += '\t                               - classic\n'
-   models_info += '\t- kazakh  - amira     - female\n'
-   models_info += '\t- kazakh  - madi      - male\n'
-   models_info += '\t- russian - alena     - female - neutral\n'
-   models_info += '\t                               - good\n'
-   models_info += '\t- russian - filipp    - male\n'
-   models_info += '\t- russian - ermil     - male   - neutral\n'
-   models_info += '\t                               - good\n'
-   models_info += '\t- russian - jane      - female - neutral\n'
-   models_info += '\t                               - good\n'
-   models_info += '\t                               - evil\n'
-   models_info += '\t- russian - madirus   - female\n'
-   models_info += '\t- russian - omazh     - male   - neutral\n'
-   models_info += '\t                               - evil\n'
-   models_info += '\t- russian - zahar     - male   - neutral\n'
-   models_info += '\t                               - good\n'
-   models_info += '\t- russian - dasha     - female\n'
-   models_info += '\t- russian - julia     - female\n'
-   models_info += '\t- russian - lera      - female\n'
-   models_info += '\t- russian - marina    - female\n'
-   models_info += '\t- russian - alexander - male\n'
-   models_info += '\t- russian - kirill    - male\n'
-   models_info += '\t- russian - anton     - male\n'
-   models_info += '\t- uzbek   - nigora    - female\n'
-
    parser = argparse.ArgumentParser(description='Speech generation script based on Yandex SpeechKit')
    parser.add_argument('-input', type=str, default='text.txt', metavar='text', help='input text file')
    parser.add_argument('-output_dir', type=str, default='wavs', metavar='wav', help='output wav file')
@@ -112,7 +82,7 @@ def main():
       lines = f.readlines()
       
    for index in tqdm(range(len(lines))): 
-      wav_filename = os.path.join(args.output_dir, str(index)+'.wav')
+      wav_filename = os.path.join(args.output_dir, str(index+1)+'.wav')
       synthesize(lines[index], wav_filename, show=args.warnings, speed=args.speed, voice=args.voice, role=args.role, volume=args.volume, pitch=args.pitch)
 
    return 0
