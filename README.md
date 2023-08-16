@@ -28,6 +28,30 @@ Speech generation from text based on Yandex SpeechKit.
 It is needed a Yandex Cloud API-key for the script running.
 Use your own one or connect with script provider for the key obtaining.
 
+## Представленные модели
+
+| **Язык** | **Модель** | **Пол** | **Настроение** |
+|---|---|---|---|
+| german | `lea` | female |  |
+| english | `john` | male |  |
+| hebrew | `naomi` | female | modern/classic|
+| kazakh | `amira` | female |  |
+| kazakh | `madi` | male |  |
+| russian | `alena` | female | neutral/good |
+| russian | `filipp` | male |  |
+| russian | `ermil` | male | neutral/good |
+| russian | `jane` | female | neutral/good/evil |
+| russian | `madirus` | female |  |
+| russian | `omazh` | male | neutral/evil |
+| russian | `zahar` | male | neutral/good |
+| russian | `dasha` | female |  |
+| russian | `julia` | female |  |
+| russian | `lera` | female |  |
+| russian | `marina` | female |  |
+| russian | `alexander` | male |  |
+| russian | `kirill` | male |  |
+| russian | `anton` | male |  |
+| uzbek | `nigora` | female |  |
 
 ## Элементы разметки
 
