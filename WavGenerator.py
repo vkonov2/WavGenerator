@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 configure_credentials(
    yandex_credentials=creds.YandexCredentials(
-      api_key=''
+      api_key=os.getenv('API_KEY')
    )
 )
 
@@ -48,6 +48,7 @@ def synthesize(text, output_filename, **kwargs):
             print('>>> using the default role')
          model.role = 'neutral' if model.voice != 'naomi' else 'modern'
    else:
+      model.voice = kwargs['voice']
       if kwargs['role'] not in models[model.voice]:
          if kwargs['show']:
             print('>>> role '+kwargs['role']+' does not exist for the voice '+model.voice)
@@ -78,6 +79,10 @@ def main():
    args = parser.parse_args()
 
    os.makedirs(args.dir, exist_ok=True)
+   files = os.listdir(args.dir)
+   for file in files:
+      os.remove(os.path.join(args.dir, file))
+   
    with open(args.input, 'r') as f:
       lines = f.readlines()
       

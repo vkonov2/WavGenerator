@@ -28,7 +28,7 @@ Running the script:
 `pipenv run python WavGenerator.py`
 
 ## NOTE: 
-It is needed a Yandex Cloud API-key for the script running.
+It is needed a Yandex Cloud API-key saved in an environment for the script running.
 Use your own one or connect with script provider for the key obtaining.
 
 ## Представленные модели
