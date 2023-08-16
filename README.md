@@ -2,7 +2,7 @@
 Speech generation from text based on Yandex SpeechKit.
 
 
-## Installation guide:
+## Installation guide (using pipenv):
 
 - install 'pipenv'
 
