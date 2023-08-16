@@ -1,5 +1,5 @@
 # WavGenerator
-Speech generation from text based on Yandex SpeechKit.
+Text-to-speech convertion based on Yandex SpeechKit.
 
 
 ## Installation guide (using pipenv):
